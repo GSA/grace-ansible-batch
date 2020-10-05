@@ -1,0 +1,14 @@
+{
+    "image": "amazon/aws-cli:latest",
+    "jobRoleArn": "${role}",
+    "vcpus": 1,
+    "memory": 1024,
+    "command": [
+      "/bin/bash",
+      "-c",
+      "aws s3 cp --region ${region} s3://${bucket}/files/run.sh run.sh && chmod +x run.sh && ./run.sh"
+    ],
+    "environment": [
+      {"name": "ANSIBLE_HOST_KEY_CHECKING", "value": "false"}
+    ]
+  }

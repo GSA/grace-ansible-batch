@@ -27,3 +27,27 @@ variable "expiration_days" {
   description = "(required) The number of days used to determine when an image will expire once pushed"
   default     = 30
 }
+
+variable "subnets" {
+    type = list(string)
+    description = "The subnet IDs to be used by the AWS Batch compute environment"
+}
+
+variable "instance_types" {
+  type        = list(string)
+  description = "(optional) A list of instance types to be used for the batch"
+  default     = ["t2.micro"]
+}
+
+variable "max_vcpus" {
+  type        = number
+  description = "(optional) The maximum vCPUs required by the batch job"
+  default     = 1
+}
+
+variable "min_vcpus" {
+  type        = number
+  description = "(optional) The minimum vCPUs required by the batch job"
+  default     = 0
+}
+
